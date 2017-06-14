@@ -13,21 +13,29 @@
 </head>
 <body>
 <div class="search-box text-center">
-    <h1 id="header">INSTAnt Search</h1>
+    <h1 class="heading-text">INSTAnt Search</h1>
     <p>Search for a hashtag or select a random one!</p>
 
-    <!--<ul>-->
-        <!--<li><button type="button" class="btn btn-outline-info selection-buttons">Search</button></li>-->
-        <!--<div class="divider"></div>-->
-         <!--<li><button type="button" class="btn btn-outline-warning selection-buttons">Random</button></li>-->
-    <!--</ul>-->
+    <div class="selection-buttons">
+        <a href="#search"><button type="button" class="btn btn-outline-info">Search</button></a>
+        <button type="button" class="btn btn-outline-warning">Random</button>
+    </div>
 
-    <nav class="navbar navbar-light bg-faded selection-buttons">
-        <ul class="navbar nav-justified">
-            <li class="nav-item"><button type="button" class="btn btn-outline-info">Search</button></li>
-            <li class="nav-item"><button type="button" class="btn btn-outline-warning">Random</button></li>
-        </ul>
-    </nav>
+    <div><br><br>
+        <h1 class="heading-text" id="searchTerm"></h1>
+    </div>
+</div>
+
+<div id="api-output" class="container-fluid text-center">
+
+</div>
+
+<div id="search">
+    <button type="button" class="close">X</button>
+    <form name="search">
+        <input id="searchField" type="search" value="" placeholder="#" autocomplete="off">
+        <button id="query" type="submit" class="btn btn-success" onclick="beginQuery()">INSTAnt SEARCH!</button>
+    </form>
 </div>
 
 
