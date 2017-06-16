@@ -138,3 +138,18 @@ html, body {
 #search a {
     text-decoration: none;
 }
+
+/**
+ API Output Field
+ */
+#api-output {
+    height: 500px;
+    width: 95%;
+    margin: 100px auto;
+
+    border: .5em solid #fffff8;
+    overflow: hidden;
+    background-color: #fffff8;
+    opacity: .85;
+    border-radius: 3px;
+}
