@@ -16,11 +16,21 @@ $(function () {
     });
 
     $.ajax({
-        url: root + '/users/',
+        url: root + '/users',
         method: 'GET'
         }).then(function(data) {
-            console.log(data);
-            document.getElementById('api-output').innerHTML = JSON.stringify(data);
+            console.log(JSON.stringify(data));
+            var result = data.map(function (obj) {
+            // return "name: " + obj.name;
+
+                for (var i = 0; i < obj.name.length; i++){
+                    var names = obj.name[i];
+                    document.getElementById('api-output').innerHTML = ('<p>' + names + '</p>');
+                }
+
+            });
+
+            // document.getElementById('api-output').innerHTML = ('<h1>' + JSON.stringify(result, null, "\t") + '</h1>');
     });
 
     $('#search, #search button.close').on('click keyup', function(event){
@@ -30,33 +40,38 @@ $(function () {
     });
 });
 
-// function isSearchEmpty() {
-//     var query = $('#searchField').val();
-//     if (query.indexOf('#') > -1) {
-//         console.log("querying data....");
-//         console.log(query);
-//         $('#search').removeClass('open');
-//         $('#searchTerm').append(query);
+
+function loadResults() {
+
+}
+
 //
-//         var beginQuery = function (item) {
-//             this.item = query;
-//             $ajax({
-//                 url: root + '/' + item + '/5',
-//                 method: 'GET'
-//             }).then(function (data) {
-//
-//             });
-//         };
-//
-//         beginQuery(query);
-//
-//     } else {
-//         console.error("No hashtag included in query, firing alert...");
-//         // alert("ERROR: Please include a '#'");
-//     }
-// }
-//
-// function Query() {
+// function query() {
 //     var query = document.getElementById('searchField').value;
+//     var searchField = "name";
+//     var result = [];
 //
-// }
+//     $('#search').removeClass('open');
+//     $('#searchTerm').append(query);
+//
+//     $.ajax({
+//         url: root + '/users',
+//         method: 'GET'
+//     }).then(function(data){
+//         console.log(data);
+//
+//         result = data.filter(function (user) {
+//             return user.name == searchField;
+//         });
+//         // for (var i = 0; i < data.length; i++) {
+//         //     if (data[i][searchField] == query){
+//         //         result.push(data[i]);
+//         //     }
+//         // }
+//
+//         $('api-output').innerHTML = result;
+//     });
+
+
+
+

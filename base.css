@@ -152,4 +152,5 @@ html, body {
     background-color: #fffff8;
     opacity: .85;
     border-radius: 3px;
+    overflow-y: auto;
 }
