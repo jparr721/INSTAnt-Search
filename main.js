@@ -1,36 +1,32 @@
-var root = 'https://jsonplaceholder.typicode.com';
+var token = '398946326.5f85a1c.02de1fe8b8cf405699b2d68724ab938a'
+var root = 'https://api.instagram.com/v1/tags/';
 
 $(function () {
-
 
     $('a[href="#search"]').on('click', function(event) {
         event.preventDefault();
         $('#search').addClass('open');
+        console.log('clicked');
         $('#search > form > input[type="search"]').focus();
     });
+
+    $.ajax ({
+      url: root + 'search?q='+ '{hello}' +'&access_token=' + token,
+      method: 'GET'
+    }).then(function(data) {
+      var result = data.map(function(obj) {
+        var output = obj.data.tags;
+
+        $('#api-output').innerHTML = "tags: " + output;
+      });
+    });
+
+
 
     $('#searchField').keyup(function(event){
        if(event.keyCode == 13){
            $('#query').click();
        }
-    });
-
-    $.ajax({
-        url: root + '/users',
-        method: 'GET'
-        }).then(function(data) {
-            console.log(JSON.stringify(data));
-            var result = data.map(function (obj) {
-            // return "name: " + obj.name;
-
-                for (var i = 0; i < obj.name.length; i++){
-                    var names = obj.name[i];
-                    document.getElementById('api-output').innerHTML = ('<p>' + names + '</p>');
-                }
-
-            });
-
-            // document.getElementById('api-output').innerHTML = ('<h1>' + JSON.stringify(result, null, "\t") + '</h1>');
     });
 
     $('#search, #search button.close').on('click keyup', function(event){
@@ -40,9 +36,36 @@ $(function () {
     });
 });
 
-
 function loadResults() {
+  console.log('Load!');
+  var tag = document.getElementById('searchField').value;
+  $('#search').removeClass('open');
+  $('#search').value = "";
 
+  if (isFieldEmpty(tag)){
+    $('#searchTerm').append(tag);
+  } else {
+    $('#searchTerm').innerHTML == "";
+    $('#searchTerm').append(tag);
+  }
+}
+
+//   $.ajax ({
+//     url: root + 'search?q='+ tag +'&access_token=' + token,
+//     method: 'GET'
+//   }).then(function(data) {
+//     var result = data.map(function(obj) {
+//       var output = obj.data.tags;
+//
+//       $('#api-output').innerHTML = "tags: " + output;
+//     });
+//   });
+// }
+
+function isFieldEmpty(field) {
+  if(field.innerHTML == ""){
+    return true;
+  }
 }
 
 //
@@ -71,7 +94,3 @@ function loadResults() {
 //
 //         $('api-output').innerHTML = result;
 //     });
-
-
-
-
