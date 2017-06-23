@@ -1,5 +1,7 @@
-var token = '398946326.5f85a1c.02de1fe8b8cf405699b2d68724ab938a'
-var root = 'https://api.instagram.com/v1/tags/';
+// var root = 'https://api.github.com/users/';
+var root = 'https://api.github.com/repos/angular/angular/issues?since=';
+var search = '';
+var result = '';
 
 $(function () {
 
@@ -10,18 +12,7 @@ $(function () {
         $('#search > form > input[type="search"]').focus();
     });
 
-    $.ajax ({
-      url: root + 'search?q='+ '{hello}' +'&access_token=' + token,
-      method: 'GET'
-    }).then(function(data) {
-      var result = data.map(function(obj) {
-        var output = obj.data.tags;
-
-        $('#api-output').innerHTML = "tags: " + output;
-      });
-    });
-
-
+    loadResults();
 
     $('#searchField').keyup(function(event){
        if(event.keyCode == 13){
@@ -37,18 +28,40 @@ $(function () {
 });
 
 function loadResults() {
-  console.log('Load!');
-  var tag = document.getElementById('searchField').value;
-  $('#search').removeClass('open');
-  $('#search').value = "";
+  console.log('Loading...');
 
-  if (isFieldEmpty(tag)){
-    $('#searchTerm').append(tag);
-  } else {
-    $('#searchTerm').innerHTML == "";
-    $('#searchTerm').append(tag);
-  }
+  let date = new Date();
+  //set the date back the last 7 days
+  date.setDate(date.getDate() - 7);
+  root = root + date.toISOString();
+  console.log('URL: ' + root);
+
+  $.ajax ({
+    url: root,
+    method:'GET'
+  }).then(function(data) {
+    // result = data[0]['id'];
+    // console.log(result);
+    // var result = data.map(function(obj){
+    //   for (var i = 0; i < )
+    // })
+    for (var i = 0; i < data.length; i++ ){
+      var id = data[i]['labels'];
+      for(var j = 0; j < id.length; j++){
+        var colors = id[j]['color'];
+        console.log(colors);
+      }
+      $('#api-output').append('<p style="text-align: left">' + colors + ", " + '</p>'  + "\n");
+    }
+
+  });
+
 }
+
+function searchPosts() {
+
+}
+
 
 //   $.ajax ({
 //     url: root + 'search?q='+ tag +'&access_token=' + token,
@@ -61,36 +74,3 @@ function loadResults() {
 //     });
 //   });
 // }
-
-function isFieldEmpty(field) {
-  if(field.innerHTML == ""){
-    return true;
-  }
-}
-
-//
-// function query() {
-//     var query = document.getElementById('searchField').value;
-//     var searchField = "name";
-//     var result = [];
-//
-//     $('#search').removeClass('open');
-//     $('#searchTerm').append(query);
-//
-//     $.ajax({
-//         url: root + '/users',
-//         method: 'GET'
-//     }).then(function(data){
-//         console.log(data);
-//
-//         result = data.filter(function (user) {
-//             return user.name == searchField;
-//         });
-//         // for (var i = 0; i < data.length; i++) {
-//         //     if (data[i][searchField] == query){
-//         //         result.push(data[i]);
-//         //     }
-//         // }
-//
-//         $('api-output').innerHTML = result;
-//     });
