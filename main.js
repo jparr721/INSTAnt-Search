@@ -1,5 +1,6 @@
-// var root = 'https://api.github.com/users/';
-var root = 'https://api.github.com/repos/angular/angular/issues?since=';
+"use strict";
+
+var root = 'https://api.github.com/users/';
 var search = '';
 var result = '';
 
@@ -12,8 +13,6 @@ $(function () {
         $('#search > form > input[type="search"]').focus();
     });
 
-    loadResults();
-
     $('#searchField').keyup(function(event){
        if(event.keyCode == 13){
            $('#query').click();
@@ -25,43 +24,40 @@ $(function () {
             $(this).removeClass('open');
         }
     });
+
+    $('#query').on('click', function(event) {
+        event.preventDefault();
+        loadResults();
+        $('#search').removeClass('open');
+    })
 });
+
+
 
 function loadResults() {
   console.log('Loading...');
+  search = document.getElementById('searchField').value;
+  // console.log(search);
 
-  let date = new Date();
-  //set the date back the last 7 days
-  date.setDate(date.getDate() - 7);
-  root = root + date.toISOString();
-  console.log('URL: ' + root);
+  // var date = new Date();
+  // //set the date back the last 7 days
+  // date.setDate(date.getDate() - 7);
+  // root = root + date.toISOString();
+  // console.log('URL: ' + root);
 
   $.ajax ({
-    url: root,
+    url: root + search,
     method:'GET'
   }).then(function(data) {
-    // result = data[0]['id'];
-    // console.log(result);
-    // var result = data.map(function(obj){
-    //   for (var i = 0; i < )
-    // })
     for (var i = 0; i < data.length; i++ ){
-      var id = data[i]['labels'];
-      for(var j = 0; j < id.length; j++){
-        var colors = id[j]['color'];
-        console.log(colors);
-      }
-      $('#api-output').append('<p style="text-align: left">' + colors + ", " + '</p>'  + "\n");
+      var id = data[i]['name'];
+        // console.log(JSON.stringify(id + "1"));
+      $('#api-output').append('<h1 style="text-center">' + id + '</h1>');
     }
-
+    console.log(JSON.stringify(id));
   });
 
 }
-
-function searchPosts() {
-
-}
-
 
 //   $.ajax ({
 //     url: root + 'search?q='+ tag +'&access_token=' + token,
