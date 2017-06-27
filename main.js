@@ -35,9 +35,9 @@ function loadResults() {
     console.log('Loading...');
     $('#api-output').html("");
     $('#searchTerm').html("");
+    $('#searchField').html("");
     search = document.getElementById('searchField').value;
     console.log("Search: " + search);
-
 
 
   $.ajax ({
@@ -59,7 +59,7 @@ function loadResults() {
 
       $('#searchTerm').append("User: " + userdata.login);
       $('#api-output')
-            // .append('<h1 style="text-center">' + "Username: " + login + '</h1>') 
+            // .append('<h1 style="text-center">' + "Username: " + login + '</h1>')
           .append('<h1>' + userdata.name + '</h1>')
           .append(userdata.avatar)
           .append(linebreak)
