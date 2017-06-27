@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed9123d9-742d-4e72-9f32-d4bb3ba0c06f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
-    </list>
+    <list default="true" id="ed9123d9-742d-4e72-9f32-d4bb3ba0c06f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="404">
+              <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding>
                 <marker date="1498574393000" expanded="true" signature="1546:1557" ph="..." />
               </folding>
@@ -214,12 +212,12 @@
       <workItem from="1497482796627" duration="2085000" />
       <workItem from="1497622098532" duration="5599000" />
       <workItem from="1498518213757" duration="5435000" />
-      <workItem from="1498562670411" duration="7797000" />
+      <workItem from="1498562670411" duration="7920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33699000" />
+    <option name="totallyTimeSpent" value="33822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1056" extended-state="0" />
@@ -392,8 +390,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="404">
+          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
             <marker date="1498574393000" expanded="true" signature="1546:1557" ph="..." />
           </folding>
