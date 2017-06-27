@@ -26,7 +26,7 @@ html, body {
 .search-box {
     width: 475px;
     height: 350px;
-    margin: 100px auto;
+    margin: 60px auto;
     padding: 20px 20px 9px;
 
     border: .5em solid #fffff8;
@@ -105,7 +105,7 @@ html, body {
     top: 50%;
     left: 50%;
     margin-top: 61px;
-    margin-left: -90px;
+    margin-left: -55px;
     background-color: #9f9ecd;
     border: black;
 
@@ -145,7 +145,7 @@ html, body {
 #api-output {
     height: auto;
     min-height: 350px;
-    width: 95%;
+    width: 50%;
     margin: 100px auto;
 
     border: .5em solid #fffff8;
