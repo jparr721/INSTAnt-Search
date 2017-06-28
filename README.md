@@ -1,2 +1,2 @@
 # INSTAnt-Search
-Cute little one page application that will allow the user to search for a hashtag and load some posts with other details to constrain the number etc etc
+I guess the Instagram API is dumb so I had to switch to allowing the user to search github and load relevant information about the user. Still cool stuff!
