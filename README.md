@@ -1,2 +1,2 @@
 # INSTAnt-Search
-Cute little one page application that will allow the user to search for a hashtag and load some posts with other details to constrain the number etc etc
+Cute little one page application user to search github and load relevant information about the user they searched for.
